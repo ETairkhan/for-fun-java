@@ -2,35 +2,17 @@ import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Give numbers:");
-        int result = 0;
-        int count = 0;
-        double average = 0;
-        int even = 0;
-        int odd =0;
-        while (true){
-            int number = scanner.nextInt();
-            if(number == -1 ){
-                System.out.println("Thx! Bye!");
-                break;
+        double answer = average(4,3,5,6);
+        System.out.println("Greatest: " + answer);
+    }
 
-            }
-            if (number % 2 ==0 ){
-                even ++;
-            }
-            if (number % 2 !=0 ){
-                odd ++;
-            }
-            count++;
-            result +=number;
-            average = (double) result/count;
-        }
-        System.out.println("Sum:" + result);
-        System.out.println("Numbers: " + count);
-        System.out.println("Average: " + average);
-        System.out.println("Even:" + even);
-        System.out.println("Odd: " + odd);
+    public static double  sum(int number1, int number2,int number3,int number4 ) {
+       return number1+number2+number3+number4;
+    }
+    public static double  average(int number1, int number2,int number3,int number4) {
+        double sum = sum(number1,number2,number3,number4);
+        return  sum /4;
     }
 }
