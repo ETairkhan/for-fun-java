@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        printTriangle(10);
+        printTriangle(4);
     }
     public static void printTriangle(int height) {
         int i, space, stars;
@@ -23,16 +23,16 @@ public class Main {
             // printing new line for each row
             System.out.println();
         }
-        for( i = 1;i <= height-1;i++)
+        for( i = 1;i <= 2;i++)
         {
             System.out.print(" ");
             for(int j = height-3;j > 0;j--)
             {
                 System.out.print(" ");
             }
-            for(int k = 2;k > 0;k--)
+            for(int k = 3;k > 0;k--)
             {
-                System.out.print("| ");
+                System.out.print("*");
             }
             System.out.println();
         }// end of lower part
