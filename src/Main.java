@@ -1,19 +1,23 @@
+import javax.crypto.spec.PSource;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Integer> numbers = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        int index = -1;
+        while(true){
+            String name = scanner.nextLine();
+            if (name.equals(" ")){
+                break;
+            }
 
-        numbers.add(1);
-        numbers.add(2);
-        numbers.add(3);
-        numbers.add(4);
-
-        for (int i = 0; i < numbers.size(); i++) {
-            int number = numbers.get(i);
-            System.out.println(number);
-            // alternatively: System.out.println(numbers.get(i));
+            names.add(name);
+            index++;
         }
+
+        System.out.println(names.get(0));
+        System.out.println(names.get(index));
     }
 }
