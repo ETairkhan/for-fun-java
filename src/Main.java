@@ -1,38 +1,32 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
         ArrayList<Integer> numbers = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        int index = -1;
-        while(true){
-            int number = scanner.nextInt();
-            index++;
-            numbers.add(number);
-            if( number == 9999 ){
-                break;
-            }
-        }
-        System.out.println("Search for?");
+        numbers.add(3);
+        numbers.add(2);
+        numbers.add(6);
+        numbers.add(-1);
+        numbers.add(5);
+        numbers.add(1);
 
-       int smallest = numbers.get(0);
-       for(int i = 0; i < numbers.size(); i++){
-            int number = numbers.get(i);
-            if ( smallest > number){
-                smallest = number;
-            }
-       }
+        System.out.println("The numbers in the range [0, 5]");
+        printNumbersInRange(numbers, 0, 5);
 
-        int find = smallest;
-
-        for (int i = 0; i < index; i++ ){
-            int number = numbers.get(i);
-            if ( number == find){
-                System.out.println(find + " is at index " + i);
-            }
-
-        }
+        System.out.println("The numbers in the range [3, 10]");
+        printNumbersInRange(numbers, 3, 10);
 
     }
+        public static void printNumbersInRange(ArrayList<Integer> numbers, int lowerLimit, int upperLimit) {
+            for(int i = 0 ;i<numbers.size(); i++ ){
+                if(numbers.get(i)>=lowerLimit && numbers.get(i)<=upperLimit){
+                        System.out.println(numbers.get(i));
+                }
+
+            }
+        }
+
+
 }
