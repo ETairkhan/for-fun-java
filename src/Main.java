@@ -4,24 +4,27 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[] numbers = new int[7];
-        numbers[0] = 42;
-        numbers[1] = 13;
-        numbers[2] = 12;
-        numbers[3] = 7;
-        numbers[4] = 7;
-        numbers[5] = 7;
-        numbers[6] = 7;
+        Scanner reader = new Scanner(System.in);
+        System.out.print("How many numbers? ");
+        int howMany = Integer.valueOf(reader.nextLine());
 
-        System.out.print("Search for? ");
-        int number = scanner.nextInt();
+        int[] numbers = new int[howMany];
+
+        System.out.println("Enter the numbers:");
+
         int index = 0;
         while (index < numbers.length) {
-            if(number == numbers[index]){
-                System.out.println(number + " is at index "+ index + ".");
-            }
-            index++;
+            numbers[index] = Integer.valueOf(reader.nextLine());
+            index = index + 1;
+        }
+
+
+        System.out.println("Here are the numbers again:");
+
+        index = 0;
+        while (index < numbers.length) {
+            System.out.println(numbers[index]);
+            index = index + 1;
         }
     }
 }
