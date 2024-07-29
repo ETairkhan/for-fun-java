@@ -4,25 +4,30 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<String> strings = new ArrayList<>();
-
-        strings.add("First");
-        strings.add("Second");
-        strings.add("Third");
-
-        System.out.println(strings);
-
-        removeLast(strings);
-        removeLast(strings);
-
-        System.out.println(strings);
+        Scanner scanner = new Scanner(System.in);
+        int[] numbers = new int[5];
+        numbers[0] = 1;
+        numbers[1] = 3;
+        numbers[2] = 5;
+        numbers[3] = 7;
+        numbers[4] = 9;
+        System.out.println(numbers[0]);
+        System.out.println(numbers[1]);
+        System.out.println(numbers[2]);
+        System.out.println(numbers[3]);
+        System.out.println(numbers[4]);
+        System.out.println();
+        System.out.println("Give two indices to swap: ");
+        int swap1 = scanner.nextInt();
+        int swap2 = scanner.nextInt();
+        int helper = numbers[swap1];
+        numbers[swap1] = numbers[swap2];
+        numbers[swap2] = helper;
+        System.out.println();
+        System.out.println(numbers[0]);
+        System.out.println(numbers[1]);
+        System.out.println(numbers[2]);
+        System.out.println(numbers[3]);
+        System.out.println(numbers[4]);
     }
-    public static void removeLast(ArrayList<String> strings) {
-        if(strings.equals("")){
-            return;
-        }
-        strings.remove(1);
-    }
-
-
 }
