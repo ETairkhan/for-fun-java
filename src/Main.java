@@ -4,22 +4,27 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
-        int[] numbers = {5,1,3,4,2};
-        sumOfNumbersInArray(numbers);
-
-    }
-    public static void sumOfNumbersInArray(int[] integers){
-        int index = 0;
-        while( index < integers.length){
-            int number = integers[index];
-            for(int i =0; i < number; i++){
-                System.out.print("*");
+        Scanner scanner = new Scanner(System.in);
+        int smallest =0;
+        String oldestName = null;
+        while(true) {
+            String input = scanner.nextLine();
+            if (input.equals("")) {
+                break;
             }
-            System.out.println();
-            index++;
+            String[] parts = input.split(",");
+            int oldest = Integer.parseInt(parts[1]);
+            oldestName= parts[0];
+            if(smallest < oldest){
+                smallest = oldest;
+                oldestName= parts[0];
+            }
+
         }
+        System.out.println("Age of the oldest: " + oldestName);
+
 
     }
+
 
 }
