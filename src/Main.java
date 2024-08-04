@@ -1,17 +1,13 @@
-public class Main {
-
+public class Main{
     public static void main(String[] args) {
-        Person ada = new Person("Ada");
-        Person antti = new Person("Antti");
+        DecreasingCounter counter = new DecreasingCounter(10);
 
-        ada.printPerson();
-        antti.printPerson();
-        System.out.println("");
+        counter.printValue();
 
-        ada.growOlder();
-        ada.growOlder();
+        counter.decrement();
+        counter.printValue();
 
-        ada.printPerson();
-        antti.printPerson();
+        counter.decrement();
+        counter.printValue();
     }
 }
