@@ -11,8 +11,10 @@ public class Person {
         System.out.println(this.name + ", age " + this.age + " years");
     }
 
-    // growOlder() method has been added
+    // no one exceeds the age of 30
     public void growOlder() {
-        this.age = this.age + 1;
+        if (this.age < 30) {
+            this.age = this.age + 1;
+        }
     }
 }
