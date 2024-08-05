@@ -1,17 +1,17 @@
+import java.util.Scanner;
+
 public class MainProgram{
     public static void main(String[] args){
-        Person pekka = new Person("Pekka");
-        Person antti = new Person("Antti");
+        Person matti = new Person("Matti");
+        Person juhana = new Person("Juhana");
 
-        pekka.growOlder();
-        pekka.growOlder();
+        matti.setHeight(180);
+        matti.setWeight(86);
 
-        antti.growOlder();
+        juhana.setHeight(175);
+        juhana.setWeight(64);
 
-        System.out.println("Pekka's age: " + pekka.returnAge());
-        System.out.println("Antti's age: " + antti.returnAge());
-        int combined = pekka.returnAge() + antti.returnAge();
-
-        System.out.println("Pekka's and Antti's combined age " + combined + " years");
+        System.out.println(matti.getName() + ", body mass index is " + matti.bodyMassIndex());
+        System.out.println(juhana.getName() + ", body mass index is " + juhana.bodyMassIndex());
     }
 }
