@@ -3,18 +3,25 @@ import java.util.ArrayList;
 public class MainProgram{
     public static void main(String[] args){
         ArrayList<Person> persons = new ArrayList<>();
-
-// a person object can be created first
+        Scanner scanner = new Scanner(System.in);
         Person john = new Person("John");
-// and then added to the list
-        persons.add(john);
 
-// person objects can also be created "in the same sentence" that they are added to the list
-        persons.add(new Person("Matthew"));
-        persons.add(new Person("Martin"));
+        while(true){
+            System.out.println("Enter a name,empty will stop: ");
+            String name = scanner.nextLine();
+            if(name.isEmpty()){
+                break;
+            }
 
-        for (Person person: persons) {
-            System.out.println(person);
+            persons.add(new Person(name));
+
         }
+        System.out.println();
+        System.out.println("Perons in total: " + persons.size());
+        System.out.println("Persons: ");
+        for (Person i: persons){
+            System.out.println(i);
+        }
+
     }
 }
