@@ -4,26 +4,35 @@ import java.util.ArrayList;
 public class MainProgram{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        ArrayList<TelevisionProgram> tv = new ArrayList<>();
+        ArrayList<book> books = new ArrayList<>();
         while(true){
             System.out.print("Name: ");
             String name = scanner.nextLine();
             if ( name.isEmpty()){
                 break;
             }
-            System.out.print("Duration: ");
-            int duration = scanner.nextInt();
+            System.out.print("Pages: ");
+            int pages = scanner.nextInt();
+
+            System.out.print("Publication year: ");
+            int year = scanner.nextInt();
             scanner.nextLine();
 
-            tv.add(new TelevisionProgram(name,duration));
+            books.add(new book(name,pages,year));
 
         }
-        System.out.print("Program's maximum duration?");
-        int max = scanner.nextInt();
-        for (TelevisionProgram person: tv) {
-            if (max >=  person.getDuration()) {
-                System.out.println(person);
+        System.out.println("What information will be printed? ");
+        String what = scanner.nextLine();
+        if ( what.equals("everything")){
+            for(book i: books){
+                System.out.println(i);
+            }
+        }else if (what.equals("name")){
+            for(book i : books){
+                System.out.println(i.getNames());
             }
         }
+
+
     }
 }
