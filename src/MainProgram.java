@@ -1,27 +1,29 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+
 public class MainProgram{
     public static void main(String[] args){
-        ArrayList<Person> persons = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        Person john = new Person("John");
-
+        ArrayList<TelevisionProgram> tv = new ArrayList<>();
         while(true){
-            System.out.println("Enter a name,empty will stop: ");
+            System.out.print("Name: ");
             String name = scanner.nextLine();
-            if(name.isEmpty()){
+            if ( name.isEmpty()){
                 break;
             }
+            System.out.print("Duration: ");
+            int duration = scanner.nextInt();
+            scanner.nextLine();
 
-            persons.add(new Person(name));
+            tv.add(new TelevisionProgram(name,duration));
 
         }
-        System.out.println();
-        System.out.println("Perons in total: " + persons.size());
-        System.out.println("Persons: ");
-        for (Person i: persons){
-            System.out.println(i);
+        System.out.print("Program's maximum duration?");
+        int max = scanner.nextInt();
+        for (TelevisionProgram person: tv) {
+            if (max >=  person.getDuration()) {
+                System.out.println(person);
+            }
         }
-
     }
 }
