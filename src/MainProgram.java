@@ -1,21 +1,20 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 public class MainProgram{
     public static void main(String[] args){
-        PaymentCard paulCard = new PaymentCard("Paul", 20);
-        PaymentCard mattCard = new PaymentCard("Matt",30);
-        paulCard.eatHeartily();
-        mattCard.eatAffordably();
-        System.out.println(paulCard);
-        System.out.println(mattCard);
-        paulCard.addMoney(20);
-        mattCard.eatHeartily();
-        System.out.println(paulCard);
-        System.out.println(mattCard);
-        paulCard.eatAffordably();
-        paulCard.eatAffordably();
-        mattCard.addMoney(50);
-        System.out.println(paulCard);
-        System.out.println(mattCard);
+        ArrayList<Person> persons = new ArrayList<>();
+
+// a person object can be created first
+        Person john = new Person("John");
+// and then added to the list
+        persons.add(john);
+
+// person objects can also be created "in the same sentence" that they are added to the list
+        persons.add(new Person("Matthew"));
+        persons.add(new Person("Martin"));
+
+        for (Person person: persons) {
+            System.out.println(person);
+        }
     }
 }
