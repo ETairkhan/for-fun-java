@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class MainProgram{
     public static void main(String[] args){
 
-        System.out.print("File?");
+        System.out.print("Name of the file?");
         Scanner smt = new Scanner(System.in);
         String name = smt.nextLine();
         // we create a scanner for reading the file
         try (Scanner scanner = new Scanner(Paths.get(name))) {
-            ArrayList<Integer> list =new ArrayList<>();
+            ArrayList<Integer> listAge =new ArrayList<>();
+            ArrayList<String> listName =new ArrayList<>();
             // we read the file until all lines have been read
             while (scanner.hasNextLine()) {
                 // we read one line
@@ -18,24 +19,24 @@ public class MainProgram{
                 if (row.isEmpty()) {
                     continue;
                 }
-                int numbers = Integer.parseInt(row);
-                list.add(numbers);
-
+                String[] parts = row.split(",");
+                String user = parts[0];
+                int age = Integer.parseInt(parts[1]);
+                listAge.add(age);
+                listName.add(user);
             }
             while(true){
-                System.out.print("Lower bound?");
-                int lower = smt.nextInt();
-                System.out.print("Upper bound?");
-                int upper = smt.nextInt();
-                int count =0;
-                for(int i = 0; i < list.size(); i++){
-                    if(list.get(i) >= lower && list.get(i) <= upper){
-                        count++;
+                for (int i = 0; i< listName.size(); i++){
+                    if(listAge.get(i) > 1){
+                        System.out.println(listName.get(i) +", age: " + listAge.get(i) + " years" );
+                    }else {
+                        System.out.println(listName.get(i) +", age: " + listAge.get(i) + " year" );
                     }
+
                 }
-                System.out.println("Numbers: " + count );
-              break;
+                break;
             }
+
         } catch (Exception e) {
             System.out.println("Reading the file " + name +" failed");
             System.out.println("Error: " + e.getMessage());
