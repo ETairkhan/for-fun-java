@@ -1,4 +1,5 @@
 public class Product {
+    // look at this man
     private String name;
     private String location;
     private int weight;
