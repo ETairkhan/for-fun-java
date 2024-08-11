@@ -9,5 +9,6 @@ public class MainProgram {
         second.decrease();
         second.decrease(3);
         System.out.println(first + ", " +second);
+        //adsaf
     }
 }
