@@ -1,11 +1,12 @@
 public class MainProgram {
 
     public static void main(String[] args) {
-        Clock clock = new Clock();
+        Product tapeMeasure = new Product("Tape measure");
+        Product plaster = new Product("Plaster", "home improvement section");
+        Product tyre = new Product("Tyre", 5);
 
-        while (true) {
-            System.out.println(clock);
-            clock.advance();
-        }
+        System.out.println(tapeMeasure);
+        System.out.println(plaster);
+        System.out.println(tyre);
     }
 }
