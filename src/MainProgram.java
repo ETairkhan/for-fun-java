@@ -1,13 +1,13 @@
 public class MainProgram {
 
     public static void main(String[] args) {
-        //this shit is legal
-        Product tapeMeasure = new Product("Tape measure");
-        Product plaster = new Product("Plaster", "home improvement section");
-        Product tyre = new Product("Tyre", 5);
+        Counter first = new Counter(1);
+        Counter second = new Counter();
 
-        System.out.println(tapeMeasure);
-        System.out.println(plaster);
-        System.out.println(tyre);
+        first.increase(3);
+        first.increase();
+        second.decrease();
+        second.decrease(3);
+        System.out.println(first + ", " +second);
     }
 }
