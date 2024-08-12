@@ -2,7 +2,7 @@
 
 public class Example {
     //Identical twins I finished her to learn java( and wanna learn javascript instead)
-    //never used springboot actualy !
+    //never used springboot actualy !!!
     public static void main(String[] args) {
         Bird red = new Bird("Red");
         System.out.println(red);
