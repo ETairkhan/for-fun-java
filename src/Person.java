@@ -1,20 +1,19 @@
 public class Person {
-
         private String name;
-        private int age;
+        private SimpleDate birthday;
         private int weight;
         private int height;
 
-        public Person(String name) {
-            this(name, 0, 0, 0);
-        }
+            public Person(String name, SimpleDate date) {
+                this.name = name;
+                this.birthday = date;
+            }
 
-        public Person(String name, int age, int height, int weight) {
+        public Person(String name, int day, int month, int year) {
             this.name = name;
-            this.age = age;
-            this.weight = weight;
-            this.height = height;
-        }
+            this.birthday = new SimpleDate(day, month, year);
+         }
+
 
         // other constructors and methods
 
@@ -22,9 +21,6 @@ public class Person {
             return this.name;
         }
 
-        public int getAge() {
-            return this.age;
-        }
 
         public int getHeight() {
             return this.height;
@@ -34,9 +30,6 @@ public class Person {
             return weight;
         }
 
-    public void growOlder() {
-            this.age = this.age + 1;
-        }
 
         public void setHeight(int newHeight) {
             this.height = newHeight;
@@ -50,10 +43,40 @@ public class Person {
             double heightPerHundred = this.height / 100.0;
             return this.weight / (heightPerHundred * heightPerHundred);
         }
-
-        @Override
-        public String toString() {
-            return this.name + ", age " + this.age + " years";
-        }
+//    public boolean olderThan(Person compared) {
+//        // 1. First compare years
+//        int ownYear = this.getBirthday().getYear();
+//        int comparedYear = compared.getBirthday().getYear();
+//
+//        if (ownYear < comparedYear) {
+//            return true;
+//        }
+//
+//        if (ownYear > comparedYear) {
+//            return false;
+//        }
+//
+//        // 2. Same birthyear, compare months
+//        int ownMonth = this.getBirthday().getMonth();
+//        int comparedMonth = compared.getBirthday().getMonth();
+//
+//        if (ownMonth < comparedMonth) {
+//            return true;
+//        }
+//
+//        if (ownMonth > comparedMonth) {
+//            return false;
+//        }
+//
+//        // 3. Same birth year and month, compare days
+//        int ownDay = this.getBirthday().getDay();
+//        int comparedDay = compared.getBirthday().getDay();
+//
+//        if (ownDay < comparedDay) {
+//            return true;
+//        }
+//
+//        return false;
+//    }
 }
 
