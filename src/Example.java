@@ -1,27 +1,22 @@
 public class Example {
     public static void main(String[] args) {
-        Person matt = new Person("Matt");
-        matt.setWeight(86);
-        matt.setHeight(180);
+        PaymentTerminal unicafeExactum = new PaymentTerminal();
+        System.out.println(unicafeExactum);
 
-        Person jasper = new Person("Jasper");
-        jasper.setWeight(34);
-        jasper.setHeight(132);
+        PaymentCard annesCard = new PaymentCard(2);
 
-        AmusementParkRide waterTrack = new AmusementParkRide("Water track", 140);
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
 
-        if (waterTrack.allowedToRide(matt)) {
-            System.out.println(matt.getName() + " may enter the ride");
-        } else {
-            System.out.println(matt.getName() + " may not enter the ride");
-        }
+        boolean wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
 
-        if (waterTrack.allowedToRide(jasper)) {
-            System.out.println(jasper.getName() + " may enter the ride");
-        } else {
-            System.out.println(jasper.getName() + " may not enter the ride");
-        }
+        unicafeExactum.addMoneyToCard(annesCard, 100);
 
-        System.out.println(waterTrack);
+        wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
+
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
+
+        System.out.println(unicafeExactum);
     }
 }

@@ -30,7 +30,11 @@ public class Person {
             return this.height;
         }
 
-        public void growOlder() {
+         public int getWeight() {
+            return weight;
+        }
+
+    public void growOlder() {
             this.age = this.age + 1;
         }
 
