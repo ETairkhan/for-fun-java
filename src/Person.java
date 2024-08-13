@@ -4,14 +4,18 @@ public class Person {
         private int weight;
         private int height;
 
-            public Person(String name, SimpleDate date) {
+            public Person(String name, SimpleDate date, int height , int weight) {
                 this.name = name;
                 this.birthday = date;
+                this.weight = weight;
+                this.height = height;
             }
 
-        public Person(String name, int day, int month, int year) {
+        public Person(String name, int day, int month, int year, int height , int weight) {
             this.name = name;
             this.birthday = new SimpleDate(day, month, year);
+            this.weight = weight;
+            this.height = height;
          }
 
 
@@ -43,40 +47,30 @@ public class Person {
             double heightPerHundred = this.height / 100.0;
             return this.weight / (heightPerHundred * heightPerHundred);
         }
-//    public boolean olderThan(Person compared) {
-//        // 1. First compare years
-//        int ownYear = this.getBirthday().getYear();
-//        int comparedYear = compared.getBirthday().getYear();
-//
-//        if (ownYear < comparedYear) {
-//            return true;
-//        }
-//
-//        if (ownYear > comparedYear) {
-//            return false;
-//        }
-//
-//        // 2. Same birthyear, compare months
-//        int ownMonth = this.getBirthday().getMonth();
-//        int comparedMonth = compared.getBirthday().getMonth();
-//
-//        if (ownMonth < comparedMonth) {
-//            return true;
-//        }
-//
-//        if (ownMonth > comparedMonth) {
-//            return false;
-//        }
-//
-//        // 3. Same birth year and month, compare days
-//        int ownDay = this.getBirthday().getDay();
-//        int comparedDay = compared.getBirthday().getDay();
-//
-//        if (ownDay < comparedDay) {
-//            return true;
-//        }
-//
-//        return false;
-//    }
+
+        boolean olderThan(Person compared){
+            return this.birthday.before(compared.birthday);
+        }
+
+        public boolean equals(Object compared){
+                if (this == compared){
+                    return true;
+                }
+
+
+                if(!(compared instanceof Person)){
+                    return false;
+                }
+
+                Person comparedPerson = (Person) compared;
+
+                if(this.name.equals(comparedPerson.name)&& this.birthday == comparedPerson.birthday&& this.weight == comparedPerson.weight && this.height == comparedPerson.height){
+                    return true;
+                }
+                return false;
+
+        }
+
+
 }
 

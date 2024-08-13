@@ -21,9 +21,7 @@ public class SimpleDate {
     public int getYear() {
         return this.year;
     }
-    public int ageAsYears(){
-        return this.year;
-    }
+
     public boolean before(SimpleDate compared) {
         // first compare years
         if (this.year < compared.year) {
@@ -48,6 +46,24 @@ public class SimpleDate {
             return true;
         }
 
+        return false;
+    }
+
+    public boolean equals(Object compared){
+        if ( this == compared){
+            return true;
+        }
+
+        if (!(compared instanceof SimpleDate)){
+            return false;
+        }
+
+        SimpleDate comparedSimpleDate = (SimpleDate) compared;
+
+        if(this.day == comparedSimpleDate.day &&
+        this.month == comparedSimpleDate.month && this.year == comparedSimpleDate.year ){
+            return true;
+        }
         return false;
     }
 
