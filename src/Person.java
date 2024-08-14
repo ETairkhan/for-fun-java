@@ -4,6 +4,18 @@ public class Person {
         private int weight;
         private int height;
 
+        public Person(String name ,int height){
+            this.name = name;
+            this.height = height;
+        }
+
+        public Person(String name){
+            this.name =name;
+            this.weight = 0;
+            this.height = 0;
+        }
+
+
             public Person(String name, SimpleDate date, int height , int weight) {
                 this.name = name;
                 this.birthday = date;
@@ -69,6 +81,9 @@ public class Person {
                 }
                 return false;
 
+        }
+        public String toString(){
+            return name+"(" + height + ")";
         }
 
 

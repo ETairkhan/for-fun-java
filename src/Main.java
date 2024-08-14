@@ -4,21 +4,20 @@ import java.util.ArrayList;
 public class Main{
 
     public static void main(String[] args) {
-        Money a = new Money(10, 0);
-        Money b = new Money(3, 50);
+        Item book = new Item("Lord of the rings", 2);
+        Item phone = new Item("Nokia 3210", 1);
+        Item brick = new Item("brick", 4);
 
-        Money c = a.minus(b);
+        Suitcase suitcase = new Suitcase(5);
+        System.out.println(suitcase);
 
-        System.out.println(a);  // 10.00e
-        System.out.println(b);  // 3.50e
-        System.out.println(c);  // 6.50e
+        suitcase.addItem(book);
+        System.out.println(suitcase);
 
-        c = c.minus(a);       // NB: a new Money object is created, and is placed "at the end of the strand connected to c"
-//  the old 6.5 euros at the end of the strand disappears and the Java garbage collector takes care of it
+        suitcase.addItem(phone);
+        System.out.println(suitcase);
 
-
-        System.out.println(a);  // 10.00e
-        System.out.println(b);  // 3.50e
-        System.out.println(c);  // 0.00e
+        suitcase.addItem(brick);
+        System.out.println(suitcase);
     }
 }
