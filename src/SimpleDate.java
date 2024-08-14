@@ -28,44 +28,39 @@ public class SimpleDate {
             return true;
         }
 
-        if (this.year > compared.year) {
-            return false;
-        }
-
-        // years are same, compare months
-        if (this.month < compared.month) {
+        // if the years are the same, compare months
+        if (this.year == compared.year && this.month < compared.month) {
             return true;
         }
 
-        if (this.month > compared.month) {
-            return false;
-        }
-
-        // years and months are same, compare days
-        if (this.day < compared.day) {
+        // the years and the months are the same, compare days
+        if (this.year == compared.year && this.month == compared.month &&
+                this.day < compared.day) {
             return true;
         }
 
         return false;
     }
-
-    public boolean equals(Object compared){
-        if ( this == compared){
-            return true;
+    public void advance(int howManyDays){
+        for(int i =0; i<howManyDays; i++){
+            day += 1;
+            if(day > 30){
+                day = 1;
+                month++;
+                if(month>12){
+                    month = 1;
+                    year++;
+                }
+            }
         }
-
-        if (!(compared instanceof SimpleDate)){
-            return false;
-        }
-
-        SimpleDate comparedSimpleDate = (SimpleDate) compared;
-
-        if(this.day == comparedSimpleDate.day &&
-        this.month == comparedSimpleDate.month && this.year == comparedSimpleDate.year ){
-            return true;
-        }
-        return false;
     }
+    public SimpleDate afterNumberOfDays(int days){
+        SimpleDate afterNumberOfDays = new SimpleDate(this.day, this.month, this.year);
+        afterNumberOfDays.advance(days);
+
+        return afterNumberOfDays;
+    }
+
 
     @Override
     public String toString() {

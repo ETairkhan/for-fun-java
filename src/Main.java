@@ -4,36 +4,21 @@ import java.util.ArrayList;
 public class Main{
 
     public static void main(String[] args) {
-        ArrayList<Archive> archives = new ArrayList<>();
-        Scanner scanner = new  Scanner(System.in);
-        while(true){
-            System.out.println("Identifier? (empty will stop):");
-            String Identifier = scanner.nextLine();
-            if(Identifier.isEmpty()){
-                break;
-            }
-            System.out.println("Name? (empty will stop)");
-            String name = scanner.nextLine();
-            if(name.isEmpty()){
-                break;
-            }
+        Money a = new Money(10, 0);
+        Money b = new Money(3, 50);
 
-            Archive item = new Archive(Identifier, name);
+        Money c = a.minus(b);
 
-            if(!(archives.contains(item))){
-                archives.add(item);
-            }
+        System.out.println(a);  // 10.00e
+        System.out.println(b);  // 3.50e
+        System.out.println(c);  // 6.50e
+
+        c = c.minus(a);       // NB: a new Money object is created, and is placed "at the end of the strand connected to c"
+//  the old 6.5 euros at the end of the strand disappears and the Java garbage collector takes care of it
 
 
-        }
-
-        System.out.println("==Items==");
-        for(Archive item: archives){
-            System.out.println(item.getIdentifier() + ": " + item.getName());
-        }
-
-
-
-
+        System.out.println(a);  // 10.00e
+        System.out.println(b);  // 3.50e
+        System.out.println(c);  // 0.00e
     }
 }
