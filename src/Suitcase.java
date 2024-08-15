@@ -22,7 +22,29 @@ public class Suitcase {
             totalItems++;
         }
 
+
     }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getMaxWeight() {
+        return maxWeight;
+    }
+
+    public int getTotalWeight() {
+        return totalWeight;
+    }
+
+    public int getTotalItems() {
+        return totalItems;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
     public String toString(){
         if (totalItems == 0){
             return "no items (0 kg)";
@@ -33,7 +55,33 @@ public class Suitcase {
         }
         return totalItems + " items (" + totalWeight+" kg)";
     }
-    //ALL ITEMS FOR THE SUIT CASE CLASS
+
+    public void printItems(){
+        for(Item a: items){
+            System.out.println(a);
+        }
+
+    }
+
+    public int totalWeight(){
+        return totalWeight;
+    }
+
+
+    public Item heaviestItem(){
+
+        if (items.isEmpty()) {
+            return null;
+        }
+        Item heaviest = items.get(0);
+        for(Item item: items){
+
+            if(heaviest.getWeight()< item.getWeight()){
+                heaviest = item;
+            }
+        }
+        return heaviest;
+    }
 
 
 }

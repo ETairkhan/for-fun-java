@@ -15,6 +15,6 @@ public class Item {
         return weight;
     }
     public String toString(){
-        return name+"("+weight+")";
+        return name+"("+weight+" kg)";
     }
 }
