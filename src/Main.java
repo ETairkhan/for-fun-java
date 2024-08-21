@@ -1,17 +1,15 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main{
 
     public static void main(String[] args) {
+
+        JokeManager manager = new JokeManager();
         Scanner scanner = new Scanner(System.in);
-        GradeRegister register = new GradeRegister();
-        UserInterface user = new UserInterface(register ,scanner);
-        user.start();
 
-        System.out.println("The average of points: " + register.averageOfPoints());
-        System.out.println("The average of grades: " + register.averageOfGrades());
-
-
+        UserInterface ui = new UserInterface(manager, scanner);
+        ui.start();
     }
 }
