@@ -1,31 +1,53 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class UserInterface {
+    private GradeRegister register;
     private Scanner scanner;
-    private WordSet wordSet;
 
-    public UserInterface(Scanner scanner, WordSet wordSet) {
+    public UserInterface(GradeRegister register, Scanner scanner){
+        this.register = register;
         this.scanner = scanner;
-        this.wordSet = wordSet;
     }
 
-    public void start() {
+    public void start(){
+        readPoints();
+        System.out.println("");
+        printGradeDistribution();
+    }
+    public void readPoints() {
         while (true) {
-            System.out.print("Enter a word: ");
-            String word = scanner.nextLine();
-
-            if (this.wordSet.contains(word)) {
+            System.out.print("Points: ");
+            String input = scanner.nextLine();
+            if (input.equals("")) {
                 break;
             }
-            wordSet.add(word);
+
+            int points = Integer.valueOf(input);
+
+            if (points < 0 || points > 100) {
+                System.out.println("Impossible number.");
+                continue;
+            }
+
+            this.register.addGradeBasedOnPoints(points);
         }
-        for(String word: wordSet.getList()){
-            System.out.println(word);
-        }
-        System.out.println("You gave the same word twice!");
-        System.out.println(this.wordSet.palindromes() + " of the words were palindromes.");
     }
 
+    public void printGradeDistribution() {
+        int grade = 5;
+        while (grade >= 0) {
+            int stars = register.numberOfGrades(grade);
+            System.out.print(grade + ": ");
+            printStars(stars);
+            System.out.println("");
 
+            grade = grade - 1;
+        }
+    }
+        public static void printStars(int stars) {
+            while (stars > 0) {
+                System.out.print("*");
+                stars--;
+            }
+        }
 }
