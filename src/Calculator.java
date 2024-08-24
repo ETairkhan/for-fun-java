@@ -10,10 +10,11 @@ public class Calculator {
     }
 
     public void subtract(int number){
-        this.value = this.value + number;
+        this.value -= number;
     }
 
     public int getValue(){
         return this.value;
     }
+    //Test-Driven Development
 }
