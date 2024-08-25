@@ -6,8 +6,13 @@ public class Main{
 
     public static void main(String[] args) {
 
-        LiquidContainers liquid = new LiquidContainers();
-        liquid.main();
+        Scanner scanner = new Scanner(System.in);
+        Container container1 = new Container();
+        Container container2 = new Container();
+
+        UserInterface ui = new UserInterface(container1, container2, scanner);
+
+        ui.start();
 
 
     }
