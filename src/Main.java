@@ -1,19 +1,65 @@
+import com.bluecatcode.junit.shaded.org.apache.commons.lang3.ArrayUtils;
+
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
-public class Main{
+public class Main {
 
     public static void main(String[] args) {
+        int[] numbers = {6, 5, 8, 7, 11};
+        System.out.println("Index of the smallest number: " + Main.indexOfSmallest(numbers));
+    }
 
-        Scanner scanner = new Scanner(System.in);
-        Container container1 = new Container();
-        Container container2 = new Container();
+    public static int smallest(int[] array) {
+        int smallest = array[0];
+        for (int i = 1; array[i] < smallest; i++) {
+            smallest = array[i];
+        }
+        return smallest;
+    }
 
-        UserInterface ui = new UserInterface(container1, container2, scanner);
+    public static int indexOfSmallest(int[] array) {
+        int smallest = array[0];
+        for (int i = 1; array[i] < smallest; i++) {
+            smallest = array[i];
 
-        ui.start();
+        }
+        int indexOf = ArrayUtils.indexOf(array, smallest);
+        return indexOf;
+    }
+
+    public static int indexOfSmallestFrom(int[] array, int startIndex){
+        int smallest = array[startIndex];
+        for (int i = startIndex+1; array[i] < smallest; i++) {
+            smallest = array[i];
+
+        }
+        int indexOf = ArrayUtils.indexOf(array, smallest);
+        return indexOf;
+    }
+
+    public static void swap(int[] array, int index1, int index2){
+        int first = array[index1];
+        array[index1] = array[index2];
+        array[index2] = first;
+
+    }
+    public static void sort(int[] array){
+        int smallest = array[0];
+        for (int i = 1; array[i] < smallest; i++) {
+            array[i] = smallest;
+
+            int indexOf = ArrayUtils.indexOf(array, smallest);
+            System.out.println(Arrays.toString(array));
+        }
+
+
 
 
     }
+
 }
+
+
