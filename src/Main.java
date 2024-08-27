@@ -26,6 +26,7 @@ public class Main {
             smallest = array[i];
 
         }
+        // it can be done differently here!
         int indexOf = ArrayUtils.indexOf(array, smallest);
         return indexOf;
     }
