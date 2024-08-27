@@ -21,14 +21,14 @@ public class Main {
     }
 
     public static int indexOfSmallest(int[] array) {
-        int smallest = array[0];
-        for (int i = 1; array[i] < smallest; i++) {
-            smallest = array[i];
-
+        int smallest = smallest(array);
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == smallest) {
+                index = i;
+            }
         }
-        // it can be done differently here!
-        int indexOf = ArrayUtils.indexOf(array, smallest);
-        return indexOf;
+        return index;
     }
 
     public static int indexOfSmallestFrom(int[] array, int startIndex){
