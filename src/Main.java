@@ -8,8 +8,8 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        int[] numbers = {6, 5, 8, 7, 11};
-        System.out.println("Index of the smallest number: " + Main.indexOfSmallest(numbers));
+        int[] numbers = {8, 3, 7, 9, 1, 2, 4};
+        Main.sort(numbers);
     }
 
     public static int smallest(int[] array) {
@@ -31,14 +31,44 @@ public class Main {
         return index;
     }
 
-    public static int indexOfSmallestFrom(int[] array, int startIndex){
-        int smallest = array[startIndex];
-        for (int i = startIndex+1; array[i] < smallest; i++) {
-            smallest = array[i];
+//    public static int indexOfSmallestFrom(int[] array, int startIndex){
+//        int smallest = array[startIndex];
+//        for (int i = startIndex+1; array[i] < smallest; i++) {
+//            smallest = array[i];
+//
+//        }
+//        int indexOf = ArrayUtils.indexOf(array, smallest);
+//        return indexOf;
+//    }
 
+
+//    public static int indexOfSmallestFrom(int[] array, int startIndex){
+//        int smallest = array[startIndex];
+//        for (int i = startIndex; array[i] < smallest; i++) {
+//            smallest = array[i];
+//        }
+//
+//        int index = 0;
+//        for(int i =startIndex ; i < array.length; i++ ){
+//
+//            if(array[i] == smallest){
+//                index = i;
+//            }
+//
+//        }
+//        return index;
+//    }
+
+    public static  int indexOfSmallestFrom(int[] array, int startIndex){
+        int smallest = array[startIndex];
+        int index =startIndex;
+        for(int i = startIndex + 1 ; i < array.length; i++){
+            if(array[i] < smallest){
+                smallest = array[i];
+                index = i;
+            }
         }
-        int indexOf = ArrayUtils.indexOf(array, smallest);
-        return indexOf;
+        return index;
     }
 
     public static void swap(int[] array, int index1, int index2){
@@ -48,15 +78,23 @@ public class Main {
 
     }
     public static void sort(int[] array){
-        int smallest = array[0];
-        for (int i = 1; array[i] < smallest; i++) {
-            array[i] = smallest;
+        System.out.println(Arrays.toString(array));
+        for(int i = 0; i < array.length -1; i++){
+           int index =i;
+           int smallest = array[i];
 
-            int indexOf = ArrayUtils.indexOf(array, smallest);
-            System.out.println(Arrays.toString(array));
-        }
+           for(int j = i+1; j<array.length; j++){
 
+               if(array[j] < smallest){
+                   smallest = array[j];
+                   index = j;
 
+               }
+           }
+
+           swap(array, i, index );
+           System.out.println(Arrays.toString(array));
+       }
 
 
     }
